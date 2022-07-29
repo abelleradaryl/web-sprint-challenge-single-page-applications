@@ -41,7 +41,7 @@ const PizzaForm = (props) =>{
 
                 <label className='size'>
                     <div className='sizeText'>
-                        Pick a size, any size
+                        Pick a size:
                     </div>
                     <select size={formValues.size} onChange={onChange} name='size' id='size-dropdown'>
                         <option className='dropdown'>--Select A Size--</option>
