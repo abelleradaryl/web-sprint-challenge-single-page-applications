@@ -5,6 +5,7 @@ import PizzaForm from './Components/PizzaForm';
 import schema from './Components/Schema';
 import * as yup from 'yup';
 import './App.css';
+import pizzaImg from "./Pizza.jpg";
 
 const initialData = {
   name: '',
@@ -72,17 +73,22 @@ const App = () => {
   
 
   return (
-    <>
+    <div className="App">
     <header className="header">
       <h1>Bloomtech Eats</h1>
-      <Route exact path='/'>
-        <Link id='order-pizza'to='/pizza'>Order Now</Link>
-      </Route>
-      <Route path='/pizza'>
+      <Route className="homeBtn" path='/pizza'>
         <Link to='/'>Home</Link>
       </Route>
     </header>
-
+    <div className="top-container">
+      <div className="image-container">
+        <img src={pizzaImg} />
+        <Route className="orderBtn" exact path='/'>
+          <Link id='order-pizza'to='/pizza'>Order Now</Link>
+        </Route>
+      </div>
+    </div>
+    <div className="form container">
       <Route path ='/pizza'>
         <PizzaForm 
           formValues={formValues}
@@ -92,8 +98,10 @@ const App = () => {
           errors={errors}
         />
       </Route>
+    </div>
     
-    </>
+    </div>
   );
 };
 export default App;
+

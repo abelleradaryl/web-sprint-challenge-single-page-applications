@@ -1,8 +1,14 @@
 .App {
+  width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
+  width: 75%;
   height: 40vmin;
   pointer-events: none;
 }
@@ -36,3 +42,119 @@
     transform: rotate(360deg);
   }
 }
+
+.error {
+  color: red;
+}
+
+header {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.top-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.build {
+  width: 75%;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 1rem;
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  padding: 32px;
+  background-color: white;
+  margin-bottom: 2.3rem;
+}
+
+.nameContainer {
+  width: 100%;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 1rem;
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  padding: 32px;
+  background-color: white;
+  margin-bottom: 2.3rem;
+
+}
+
+.sizeContainer {
+  width: 100%;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 1rem;
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  padding: 32px;
+  background-color: white;
+  margin-bottom: 2.3rem;
+}
+
+.checkContainer {
+  width: 100%;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 1rem;
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  padding: 32px;
+  background-color: white;
+  margin-bottom: 2.3rem;
+}
+
+.specialContainer {
+  width: 100%;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 1rem;
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  padding: 32px;
+  background-color: white;
+  margin-bottom: 2.3rem;
+}
+
+.bottom-container {
+  width: 50rem;
+  margin-top: 2.5rem;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 1rem;
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  padding: 32px;
+  background-color: white;
+  margin-bottom: 2.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkContainer {
+  display: flex;
+  flex-direction: column;
+}
+

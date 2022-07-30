@@ -18,16 +18,16 @@ const PizzaForm = (props) =>{
  }
 
     return(
-        <>
-            <div className="error">
-                <p>{errors.name}</p>
+        <div className='bottom-container'>
+            <div className='build'>
+                <h2>Build Your Own Pizza</h2>
             </div>
             <form onSubmit={onSubmit} id='pizza-form'>
             <div className='formContainer'>
                 
-                <label>
+                <label className='nameContainer'>
                     <div className='name'>
-                        Please enter order name: 
+                        <h3>Who is this order for?:</h3>
                     </div>
                     <input id='name-input'
                         type='text'
@@ -39,9 +39,9 @@ const PizzaForm = (props) =>{
 
                 </label>
 
-                <label className='size'>
+                <label className='sizeContainer'>
                     <div className='sizeText'>
-                        Pick a size:
+                        <h3>Pick a size:</h3>
                     </div>
                     <select size={formValues.size} onChange={onChange} name='size' id='size-dropdown'>
                         <option className='dropdown'>--Select A Size--</option>
@@ -51,12 +51,13 @@ const PizzaForm = (props) =>{
                     </select>
                 </label>
 
-                <div className='checkboxTitle'>
-                    Select your toppings
-                </div>
                 <div className='checkContainer'>
                     
-                    <label className='box box1'>Cheese
+                    <div className='checkboxTitle'>
+                        <h3>Select your toppings:</h3>
+                    </div>
+                    
+                    <label className='box box1'>Ham
                         <input
                         type='checkbox'
                         name='toppingOne'
@@ -90,9 +91,9 @@ const PizzaForm = (props) =>{
                     </label>
                 </div>
 
-                <label>
+                <label className='specialContainer'>
                     <div className='specialInstructions'>
-                        Special Instructions:
+                        <h3>Special Instructions:</h3>
                     </div>
                 <input id='special-text'
                     type ='text'
@@ -103,12 +104,16 @@ const PizzaForm = (props) =>{
                 />
                 </label>
                 
+                <div className="error">
+                    <p className='error'>{errors.name}</p>
+                </div>
+
                 <button className='formButton' id='order-button'>
                     Submit your order
                 </button>
             </div>
             </form>
-        </>
+        </div>
     )
 
 
