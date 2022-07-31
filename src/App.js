@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import PizzaForm from './Components/PizzaForm';
 import schema from './Components/Schema';
+import Food from "./Components/Home";
 import * as yup from 'yup';
 import './App.css';
 import pizzaImg from "./Pizza.jpg";
@@ -56,6 +57,7 @@ const App = () => {
     //     console.log(resp)
     //   })
     // })
+  
 
     const submit = () =>{
       const newData = {
@@ -67,40 +69,57 @@ const App = () => {
           toppingFour: formValues.toppingFour,
           specialInstructions: formValues.specialInstructions
       }
-      pizzaApi(newData)
+      pizzaApi(newData);
    }
 
   
 
   return (
     <div className="App">
-    <header className="header">
-      <h1>Bloomtech Eats</h1>
-      <Route className="homeBtn" path='/pizza'>
-        <Link to='/'>Home</Link>
-      </Route>
-    </header>
-    <div className="top-container">
-      <div className="image-container">
-        <img src={pizzaImg} />
-        <Route className="orderBtn" exact path='/'>
-          <Link id='order-pizza'to='/pizza'>Order Now</Link>
+      <header className="header">
+        <h1>Bloomtech Eats</h1>
+        <div className="nav">
+          <Route path='/pizza'>
+            <Link to='/'>
+              <button className="button">Home</button>
+            </Link>
+          </Route>
+          <button className="button">More Food</button>
+          <button className="button">About Us</button>
+        </div>
+      </header>
+      <div className="top-container">
+        <div className="image-container">
+          <img src={pizzaImg} />
+          <h2>Best Pizza In Town!!</h2>
+          <Route exact path='/'>
+            <Link id='order-pizza'to='/pizza'>
+              <button className="button">Order Now</button>
+            </Link>
+            <br/>
+            <div className="moreFood">
+            <h1>More Food!!</h1>
+            </div>
+            <div className="food container">
+              <Food></Food>
+            </div>
+          </Route>
+        </div>
+      </div>
+      <div>
+      </div>
+      <div className="form container">
+        <Route path ='/pizza'>
+          <PizzaForm 
+            formValues={formValues}
+            submit={submit}
+            change={change}
+            newOrder={newOrder}
+            errors={errors}
+          />
         </Route>
       </div>
-    </div>
-    <div className="form container">
-      <Route path ='/pizza'>
-        <PizzaForm 
-          formValues={formValues}
-          submit={submit}
-          change={change}
-          newOrder={newOrder}
-          errors={errors}
-        />
-      </Route>
-    </div>
-    
-    </div>
+  </div>
   );
 };
 export default App;
