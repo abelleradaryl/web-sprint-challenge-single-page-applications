@@ -3,10 +3,44 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import PizzaForm from './Components/PizzaForm';
 import schema from './Components/Schema';
-import Food from "./Components/Home";
+import Food from "./Components/Food";
 import * as yup from 'yup';
 import './App.css';
 import pizzaImg from "./Pizza.jpg";
+import styled, {keyframes} from "styled-components";
+
+const kf = keyframes`
+50% {
+  transform: scale(0.8);
+}
+100% {
+  opacity: 1;
+  transform: scale(1);
+}
+`
+const StyledApp = styled.div`
+
+opacity: 1;
+transform: scale(1) rotateZ(0);
+animation: ${kf} 0.5s ease-in-out forwards;
+
+  @media ${prop => prop.theme.breakpointMobile} {
+      width: 100%;
+    }
+
+  background-color: ${props => props.theme.white};
+
+  h2 {
+    color: ${props => props.theme.black};
+  }
+
+      button {
+    background-color: ${prop => prop.theme.tertiaryColor};
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+`
 
 const initialData = {
   name: '',
@@ -78,7 +112,7 @@ const App = () => {
     <div className="App">
       <header className="header">
         <h1>Bloomtech Eats</h1>
-        <div className="nav">
+        <StyledApp className="nav">
           <Route path='/pizza'>
             <Link to='/'>
               <button className="button">Home</button>
@@ -86,25 +120,26 @@ const App = () => {
           </Route>
           <button className="button">More Food</button>
           <button className="button">About Us</button>
-        </div>
+        </StyledApp>
       </header>
       <div className="top-container">
-        <div className="image-container">
+        <StyledApp className="image-container">
+          <h2>Pizza Palace</h2>
           <img src={pizzaImg} />
-          <h2>Best Pizza In Town!!</h2>
           <Route exact path='/'>
+          <h2>The Best Pizza On Earth!!</h2>
             <Link id='order-pizza'to='/pizza'>
               <button className="button">Order Now</button>
             </Link>
             <br/>
             <div className="moreFood">
-            <h1>More Food!!</h1>
+            <h1>More Food!</h1>
             </div>
-            <div className="food container">
+            <div className="foodContainer">
               <Food></Food>
             </div>
           </Route>
-        </div>
+        </StyledApp>
       </div>
       <div>
       </div>

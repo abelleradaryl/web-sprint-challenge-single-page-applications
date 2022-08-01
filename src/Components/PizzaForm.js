@@ -1,7 +1,38 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
+import styled, {keyframes} from "styled-components";
 
+const kf = keyframes`
+50% {
+  transform: scale(0.8);
+}
+100% {
+  opacity: 1;
+  transform: scale(1);
+}
+`
+const StyledForm = styled.div`
 
+  @media ${prop => prop.theme.breakpointMobile} {
+      width: 100%;
+    }
+
+  h2 {
+    color: ${props => props.theme.black};
+  }
+
+      button {
+    background-color: ${prop => prop.theme.tertiaryColor};
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+//   transition: all .2s ease-in-out;
+//   &:hover {
+//     background-color: ${pr => pr.theme.secondaryColor};
+//     color: ${pr => pr.theme.primaryColor};
+`
 
 const PizzaForm = (props) =>{
     const {submit, formValues, change, errors} = props
@@ -20,7 +51,7 @@ const PizzaForm = (props) =>{
 
     return(
         <>
-            <div className='bottom-container'>
+            <StyledForm className='bottom-container'>
                 <div className='build'>
                     <h2>Build Your Own Pizza</h2>
                 </div>
@@ -114,13 +145,13 @@ const PizzaForm = (props) =>{
                         <p className='error'>{errors.name}</p>
                     </div>
 
-                    <button className='formButton' id='order-button'>
+                    <button className='form button' id='order-button'>
                         Submit your order
                     </button>
                 </div>
                 
                 </form>
-            </div>
+            </StyledForm>
         </>
     )
 
